@@ -26,7 +26,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.amazon.com/*"],
-      "js": ["hello.js"]
+      "js": ["dist/runtime.bundle.js", "dist/background.bundle.js"]
     }
   ]
 }
