@@ -25,7 +25,7 @@
   "options_page": "options.html",
   "content_scripts": [
     {
-      "matches": ["https://www.amazon.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["dist/runtime.bundle.js", "dist/background.bundle.js"]
     }
   ]

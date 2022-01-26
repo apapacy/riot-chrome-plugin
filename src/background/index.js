@@ -1,18 +1,7 @@
-import * as riot  from 'riot'
-import TestTag from './test.riot';
+let previousTime = new Date().getTime();
 
-console.log(TestTag);
-riot.register(TestTag.name, TestTag)
-
-window.addEventListener('load', (event) => {
-    const asins = document.querySelectorAll('[data-asin]:not([data-asin=""])');
-    for (let i = 0; i < asins.length; i++) {
-        const asin = asins[i];
-        const el = asin.insertBefore(document.createElement('div'), asin.firstChild)
-        //el.appendChild(document.createTextNode('*** test ***'))
-        el.setAttribute('data-asin', asin.getAttribute('data-asin'));
-        el.setAttribute('is', 'test-tag')
-        riot.mount(el)
-    }
-
+window.addEventListener('mousemove', (event) => {
+  const time = new Date().getTime();
+  chrome.storage.local.set({[time]: { x: event.clientX, y: event.clientY }});
+  chrome.storage.local.get(null, function(result) {console.log(result)});
 }, false);
